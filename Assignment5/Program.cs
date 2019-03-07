@@ -25,12 +25,12 @@ namespace Assignment5
                 Console.WriteLine(pokemon.Name);
             }
 
-            // TODO:: Add a pokemon bag with 2 bulbsaur, 1 charlizard, 1 mew and 1 dragonite ---- DONE
+            // TODO:: Add a pokemon bag with 2 bulbasaur, 1 charizard, 1 mew and 1 dragonite ---- DONE
             // TODO:: and save it out and load it back and list it out.                      ---- DONE
             PokemonBag theBag = new PokemonBag();
-            theBag.AddPokemon(pokedex, "bulbsaur");
-            theBag.AddPokemon(pokedex, "bulbsaur");
-            theBag.AddPokemon(pokedex, "charlizard");
+            theBag.AddPokemon(pokedex, "bulbasaur");
+            theBag.AddPokemon(pokedex, "bulbasaur");
+            theBag.AddPokemon(pokedex, "charizard");
             theBag.AddPokemon(pokedex, "mew");
             theBag.AddPokemon(pokedex, "dragonite");
 
@@ -47,7 +47,7 @@ namespace Assignment5
                 Console.WriteLine(string.Format("\nSaving {0} failed, due to error: {1}\n",fileName, e.Message));
             }
 
-            // Deserializting and loading pokemonBeg object with exception handling
+            // Deserializting and loading pokemonBag object with exception handling
             PokemonBag newBag = new PokemonBag();
             try
             {
@@ -58,7 +58,7 @@ namespace Assignment5
                 Console.WriteLine(string.Format("Loading {0} failed, due to error: {1}", fileName, e.Message));
             }
 
-            //TODO::add a beg pretty print function in pokemonbeg class. ----DONE
+            //TODO::add a beg pretty print function in pokemonbag class. ----DONE
             newBag.PrettyPrint(pokedex);
 
             Console.ReadKey();
