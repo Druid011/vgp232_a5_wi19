@@ -24,9 +24,8 @@ namespace Assignment5
             {
                 Console.WriteLine(pokemon.Name);
             }
+            
 
-            // TODO:: Add a pokemon bag with 2 bulbasaur, 1 charizard, 1 mew and 1 dragonite ---- DONE
-            // TODO:: and save it out and load it back and list it out.                      ---- DONE
             PokemonBag theBag = new PokemonBag();
             theBag.AddPokemon(pokedex, "bulbasaur");
             theBag.AddPokemon(pokedex, "bulbasaur");
