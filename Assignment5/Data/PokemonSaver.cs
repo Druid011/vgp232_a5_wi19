@@ -21,7 +21,7 @@ namespace Assignment5.Data
 
         public void Save_Pokedex(Pokedex dex, string fileName)
         {
-            //TODO:: check if file end of .xml
+            //TODO:: check if file end of .xml DONE
             if (!fileName.EndsWith(".xml")) { fileName = fileName + ".xml"; }
             if (File.Exists(fileName))
             {
@@ -37,7 +37,7 @@ namespace Assignment5.Data
 
         public void Save_PokeBag(PokemonBag pokeBag, string fileName)
         {
-            //TODO:: check if file end of .xml
+            //TODO:: check if file end of .xml DONE
             if (!fileName.EndsWith(".xml")) { fileName = fileName + ".xml"; }
             if (File.Exists(fileName))
             {

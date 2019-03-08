@@ -29,7 +29,7 @@ namespace Assignment5.Data
         /// <returns>A list of Pokemons</returns>
         public Pokedex Load_Pokedex(string filepath)
         {
-            //TODO:: check if file end of .xml
+            //TODO:: check if file end of .xml DONE
             if (!filepath.EndsWith(".xml")) { filepath = filepath + ".xml"; }
             if (!File.Exists(filepath))
             {
@@ -55,7 +55,7 @@ namespace Assignment5.Data
 
         public PokemonBag Load_PokemonBag(string filePath)
         {
-            //TODO:: check if file end of .xml
+            //TODO:: check if file end of .xml DONE
             if (!filePath.EndsWith(".xml")) { filePath = filePath + ".xml"; }
             if (!File.Exists(filePath))
             {
