@@ -56,7 +56,7 @@
     <Compile Include="Data\PokemonBag.cs" />
     <Compile Include="Data\PokemonSaver.cs" />
     <Compile Include="Data\PokemonReader.cs" />
-    <Compile Include="Data\Test.cs" />
+    <Compile Include="Data\Test_Serialization.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
