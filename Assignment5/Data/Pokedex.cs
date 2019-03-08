@@ -14,8 +14,8 @@ namespace Assignment5.Data
         [XmlArray("Pokemons")]
         [XmlArrayItem("Pokemon")]
         public List<Pokemon> Pokemons { get; set; }
-        Pokemon unknowPokemon;
-        static int MAX_POKEMONS = 809; //Max number of pokemons from <Bulbapedia>
+        public static Pokemon unknowPokemon;
+        public static int MAX_POKEMONS = 808; //Max number of pokemons from <Bulbapedia> - 1 , because we use 0 base
 
         public Pokedex()
         {
@@ -37,21 +37,29 @@ namespace Assignment5.Data
 
         public Pokemon GetPokemonByIndex(int index)
         {
-            //Because the data source use 1 base
-            index -= 1;
-            Pokemon returnPokemon;
-            if (index >= Pokemons.Count && index <= MAX_POKEMONS)
+            // if pokedex is empty throw exception
+            if (Pokemons.Count == 0)
             {
-                returnPokemon = unknowPokemon;
-                returnPokemon.Index = index;
+                throw new Exception("Can not get pokemon from empty pokedex");
             }
-            else if(index < 0 || index > MAX_POKEMONS)
+            
+            Pokemon returnPokemon;
+            if(index < 0 || index > MAX_POKEMONS)
             {
                 throw new Exception("Error!, invalid index detected when get pokemon from pokedex");
             }
             else
             {
-                returnPokemon = Pokemons[index];
+                returnPokemon = unknowPokemon;
+                returnPokemon.Index = index;
+                foreach (var element in Pokemons)
+                {
+                    if (index == element.Index)
+                    {
+                        returnPokemon = element;
+                        break;
+                    }
+                }
             }
 
             return returnPokemon;
@@ -59,6 +67,12 @@ namespace Assignment5.Data
 
         public Pokemon GetPokemonByName(string name)
         {
+            // if pokedex is empty throw exception
+            if (Pokemons.Count == 0)
+            {
+                throw new Exception("Can not get pokemon from empty pokedex");
+            }
+
             Pokemon returnPokemon = unknowPokemon;
 
             foreach (var element in Pokemons)
@@ -77,13 +91,19 @@ namespace Assignment5.Data
             return returnPokemon;
         }
 
-        List<Pokemon> GetPokemonsOfType(string type)
+        public List<Pokemon> GetPokemonsOfType(string type)
         {
+            // if pokedex is empty throw exception
+            if (Pokemons.Count == 0)
+            {
+                throw new Exception("Can not get pokemon from empty pokedex");
+            }
+
             // Note to check both Type1 and Type2
             List<Pokemon> returnPokemons = new List<Pokemon>();
             foreach (var element in Pokemons)
             {
-                if (element.Type1 == type || element.Type2 == type)
+                if (String.Compare(element.Type1, type, true) == 0 || String.Compare(element.Type2, type, true) == 0)
                 {
                     returnPokemons.Add(element);
                 }
@@ -92,8 +112,14 @@ namespace Assignment5.Data
             return returnPokemons;
         }
 
-        Pokemon GetHighestHPPokemon()
+        public Pokemon GetHighestHPPokemon()
         {
+            // if pokedex is empty throw exception
+            if (Pokemons.Count == 0)
+            {
+                throw new Exception("Can not get pokemon from empty pokedex");
+            }
+
             Pokemon returnPokemon = unknowPokemon;
             foreach (var element in Pokemons)
             {
@@ -106,8 +132,14 @@ namespace Assignment5.Data
             return returnPokemon;
         }
 
-        Pokemon GetHighestAttackPokemon()
+        public Pokemon GetHighestAttackPokemon()
         {
+            // if pokedex is empty throw exception
+            if (Pokemons.Count == 0)
+            {
+                throw new Exception("Can not get pokemon from empty pokedex");
+            }
+
             Pokemon returnPokemon = unknowPokemon;
             foreach (var element in Pokemons)
             {
@@ -120,8 +152,14 @@ namespace Assignment5.Data
             return returnPokemon;
         }
 
-        Pokemon GetHighestDefensePokemon()
+        public Pokemon GetHighestDefensePokemon()
         {
+            // if pokedex is empty throw exception
+            if (Pokemons.Count == 0)
+            {
+                throw new Exception("Can not get pokemon from empty pokedex");
+            }
+
             Pokemon returnPokemon = unknowPokemon;
             foreach (var element in Pokemons)
             {
@@ -134,8 +172,13 @@ namespace Assignment5.Data
             return returnPokemon;
         }
 
-        Pokemon GetHighestMaxCPPokemon()
+        public Pokemon GetHighestMaxCPPokemon()
         {
+            // if pokedex is empty throw exception
+            if (Pokemons.Count == 0)
+            {
+                throw new Exception("Can not get pokemon from empty pokedex");
+            }
             Pokemon returnPokemon = unknowPokemon;
             foreach (var element in Pokemons)
             {
